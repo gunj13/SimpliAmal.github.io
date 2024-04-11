@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Link to Font Awesome CSS -->
-<title>Business Solutions Website</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="images/fav/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/fav/favicon-32x32.png">
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="images/fav/apple-touch-icon.png">
+<!-- Android Icon -->
+<link rel="icon" type="image/png" sizes="192x192" href="images/fav/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/fav/android-chrome-512x512.png">
+
+<title>Simpli amal</title>
 <style>
 /* Global Styles */
 body {
@@ -25,7 +34,7 @@ body {
     display:flex;
     justify-content: space-between;
     z-index: 1000;
-
+    transition: transform 0.3s ease-in-out; 
 }
 
 .top-nav ul {
@@ -61,6 +70,10 @@ body {
 .top-nav ul li:hover:after{
   width: 60%;
   background-color:#004AAD;
+}
+
+.top-nav.hidden {
+  transform: translateY(-100%);
 }
 
 .logo {
@@ -113,8 +126,27 @@ body {
     margin: 5px 0px 5px 0px;
 
 }
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
+.animate {
+  animation-name: slideUp;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(100%);
+}
 
+/*
 .purpose-section {
   animation: myMove 1s;
   animation-iteration-count: 1;
@@ -149,6 +181,7 @@ body {
         transform: translateY(0);
     }
 }
+*/
 
 .icon img {
     width: 50px; /* Adjust icon size as needed */
@@ -172,7 +205,7 @@ body {
 }
 
 .half {
-    width: 48%; /* Adjust width as needed */
+    width: 48%; 
 }
 
 .half ul {
@@ -210,6 +243,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    width:20%;
 }
 
 .icon-section img {
@@ -296,6 +330,59 @@ input[type="submit"]:hover {
     color: #0051c2; /* Change color on hover */
 }
 
+
+/* Responsive styles */
+@media (max-width: 767px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
+
+      .top-nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+      }
+
+      .top-nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .offerings-lists {
+        flex-direction: column;
+      }
+
+      .half {
+        width: 100%;
+      }
+
+      .about-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile {
+        max-width: 200px;
+        margin-bottom: 20px;
+      }
+
+      form {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .top-nav ul li a {
+        font-size: medium;
+        margin: 0 10px;
+      }
+
+      .logo {
+        font-size: large;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -317,21 +404,21 @@ input[type="submit"]:hover {
         <img src="images/slide1.jpg" alt="Slide 1">
         <div class="content">
             <h2>Welcome to Simpli amal business solutions</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p><i>Empower your business with cutting-edge technology and strategic insights tailored to your needs</i></p>
         </div>
     </div>
     <div class="slide">
         <img src="images/slide2.jpg" alt="Slide 2">
         <div class="content">
             <h2>Transform your business with us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p><i>Unlock growth potential and streamline operations for unparalleled success in your industry</i></p>
         </div>
     </div>
     <div class="slide">
         <img src="images/slide4.jpg" alt="Slide 3">
         <div class="content">
             <h2>Discover innovative solutions</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p><i>Explore a world of possibilities with our innovative solutions designed to drive efficiency and profitability</i></p>
         </div>
     </div>
     <!-- Add more slides here -->
@@ -340,7 +427,9 @@ input[type="submit"]:hover {
 
       <!-- Add more slides here -->
   <br>
-  <section id="our-purpose" class="purpose-section">
+
+
+  <section id="our-purpose" class="purpose-section animate">
     <div class="container">
         <div class="icon"><img src="images/purpose.png" alt="Icon 1"></div>
         <div class="text">
@@ -351,7 +440,7 @@ input[type="submit"]:hover {
 </section>
 
 
-<section id="what-we-stand-for" class="stand-section">
+<section id="what-we-stand-for" class="stand-section animate">
     <div class="container">
         <div class="icon"><img src="images/speaker.png" alt="Icon 2"></div>
         <div class="text">
@@ -361,7 +450,7 @@ input[type="submit"]:hover {
     </div>
 </section>
 
-<section id="offerings" class="offerings-section">
+<section id="offerings" class="offerings-section animate">
     <div class="container">
         <div class="icon"><div class="icon"><img src="images/stand.png" alt="Icon 2" style="width:60px;"></div>
 
@@ -404,7 +493,7 @@ input[type="submit"]:hover {
     </div>
   </section>
   
-  <section id="balance" class="balance">
+  <section id="balance" class="balance animate">
       <div class="container">
           <img src="images/venn.png" alt="venn diagram" style="width: 15%;">
           <div class="text">
@@ -421,10 +510,10 @@ input[type="submit"]:hover {
     <h3><i>Founder:</i></h3>
       <div class="profile">
           <img src="images/profile.png" alt="Profile Photo" id="profileonly">
-          <div class="icon-section">
-          <img src="images/tata2.png" alt="Icon 1">
-          <img src="images/honda2.png" alt="Icon 2">
-          <img src="images/3M2.png" alt="Icon 3">
+          <div class="icon-section">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="images/tata2-edited.png" alt="Tata Motors" title="Tata Motors">
+          <img src="images/honda2-edited.png" alt="Honda Motor" title="Honda Motor">
+          <img src="images/3M2-edited.png" alt="3M India" title="3M India">
           </div>
       </div>
       <div>
@@ -483,6 +572,7 @@ input[type="submit"]:hover {
 
 
 
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".slide");
@@ -498,6 +588,55 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(nextSlide, slideInterval);
 });
 
+function animateOnScroll() {
+  const animateElements = document.querySelectorAll('.animate');
+  const windowHeight = window.innerHeight;
+
+  animateElements.forEach(function (animateElement) {
+    const elementTop = animateElement.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight * 0.8) {
+      animateElement.classList.add('animate');
+    }
+  });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+
+
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+//nav bar hidden when scrolling down
+let prevScrollpos = window.pageYOffset;
+const navBar = document.querySelector(".top-nav");
+
+window.onscroll = function() {
+  const currentScrollPos = window.pageYOffset;
+
+  if (prevScrollpos > currentScrollPos) {
+    // Scrolling up
+    navBar.classList.remove("hidden");
+  } else {
+    // Scrolling down
+    navBar.classList.add("hidden");
+  }
+
+  prevScrollpos = currentScrollPos;
+}
 </script>
+
+
 </body>
 </html>
