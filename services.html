@@ -42,6 +42,21 @@
         .serv {
             margin-bottom: 50px;
         }
+        /* Service Box Styles */
+.service-box {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .service-box {
+        opacity: 0.5;
+        transform: translateY(20px); /* Adjust for smaller screens */
+    }
+}
+
 
         .benefits {
             display: flex;
@@ -55,9 +70,7 @@
 
         .benefit {
             display: inline-block;
-            margin-right: 20px;
-            /* Space between benefits */
-            margin-bottom: 20px;
+            margin:10px;          /* Space between benefits */
             text-align: center;
             width: 25%;
             background-color: #fff;
@@ -81,6 +94,8 @@
         @media (max-width: 768px) {
             .benefit {
                 width: 100%;
+                margin:5px 10px 5px 10px;          /* Space between benefits */
+
                 /* Adjust width for single benefit per line on small screens */
             }
         }
@@ -98,9 +113,24 @@
         }
 
         .contact-section {
-            padding-left: 110px;
+            padding: 40px;
             background-color: #fbfdff;
         }
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #scrollpic {
+        height: 50vh; /* Adjust the height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #scrollpic {
+        height: 30vh; /* Adjust the height for even smaller screens */
+    }
+}
+
     </style>
 </head>
 
@@ -111,6 +141,11 @@
             <b style="color: #004aad;">Simpli</b>&nbsp;
             <b style="color:#333132;">amal</b>
         </div>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#about">About</a></li>
@@ -296,6 +331,19 @@
 
 
     <script>
+
+        //hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const navToggle = document.querySelector('.hamburger-menu');
+      const navMenu = document.querySelector('.top-nav ul');
+
+      navToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('change');
+      });
+    });
+
+
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -327,6 +375,28 @@
 
             prevScrollpos = currentScrollPos;
         }
+
+        //parallax
+        document.addEventListener('DOMContentLoaded', function () {
+    const serviceBoxes = document.querySelectorAll('.service-box');
+
+    window.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY + window.innerHeight;
+
+        serviceBoxes.forEach(box => {
+            const boxPosition = box.offsetTop + box.offsetHeight / 2;
+
+            if (scrollPosition > boxPosition) {
+                box.style.opacity = 1;
+                box.style.transform = 'translateY(0)';
+            } else {
+                box.style.opacity = 0;
+                box.style.transform = 'translateY(50px)'; // Adjust this value as needed
+            }
+        });
+    });
+});
+
     </script>
 </body>
 
